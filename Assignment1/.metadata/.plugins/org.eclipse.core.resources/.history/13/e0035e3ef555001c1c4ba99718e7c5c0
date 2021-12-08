@@ -1,0 +1,5 @@
+package com.greycampus.repository;
+
+public interface StateRepo {
+
+}

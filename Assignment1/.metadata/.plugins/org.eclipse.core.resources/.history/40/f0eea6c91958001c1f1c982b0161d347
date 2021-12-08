@@ -1,0 +1,19 @@
+package com.greycampus.repository;
+
+import java.util.List;
+
+import org.springframework.data.jdbc.repository.query.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.greycampus.entity.State;
+
+@Repository("StateRepo")
+public interface StateRepo extends CrudRepository<State, Long>{
+	
+	@Query("select new State(id, name) from State where country.id = :id")
+
+	public List<State> findByCountry(@Param("id") long id);
+
+}
